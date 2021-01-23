@@ -89,7 +89,7 @@ def annotate_function(function):
 
 
 def annotate_module(module):
-    functions = gather_functions(module).values()
-    for func in functions:
+    functions = gather_functions(module)
+    for func in functions.values():
         annotate_function(func)
     return functions
