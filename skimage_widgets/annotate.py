@@ -76,6 +76,13 @@ def guess_type(param: inspect.Parameter, doc_type):
         return type(param.default)
 
 
+def guess_return_type(doc_type):
+    if "array of bool" in doc_type:
+        return "napari.types.LabelsData"
+    if "array" in doc_type:
+        return "napari.types.ImageData"
+
+
 def annotate_function(function):
     sig = inspect.signature(function)
     doc_params = {p.arg_name: p.type_name for p in parse(function.__doc__).params}
@@ -86,6 +93,13 @@ def annotate_function(function):
             del doc_params[k]
     for p in sig.parameters.values():
         function.__annotations__[p.name] = guess_type(p, doc_params.get(p.name))
+    
+    doc_returns = parse(function.__doc__).returns
+    # Note skimage.filters.inverse has no return doc string
+    # Note skimage.filters.threshold should be a different type ....
+    if doc_returns is not None:
+        doc_returns_type = doc_returns.type_name
+        function.__annotations__['return'] = guess_return_type(doc_returns_type)
 
 
 def annotate_module(module):
