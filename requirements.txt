@@ -1,3 +1,2 @@
 napari-plugin-engine
-magicgui
 scikit-image

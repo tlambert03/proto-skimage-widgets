@@ -2,7 +2,7 @@ from napari_plugin_engine import napari_hook_implementation
 
 
 @napari_hook_implementation
-def napari_experimental_provide_function_widget():
+def napari_experimental_provide_function():
     from .annotate import annotate_module
     from skimage import filters
 
