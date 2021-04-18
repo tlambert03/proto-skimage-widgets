@@ -8,6 +8,8 @@
 
 Example adaptor between skimage, magicgui, and napari
 
+WORK IN PROGRESS
+
 ----------------------------------
 
 This [napari] plugin was generated with [Cookiecutter] using with [@napari]'s [cookiecutter-napari-plugin] template.
@@ -19,3 +21,5 @@ https://github.com/napari/cookiecutter-napari-plugin#getting-started
 and review the napari docs for plugin developers:
 https://napari.org/docs/plugins/index.html
 -->
+
+<img width="1052" alt="Screen-Shot-2021-01-22-at-8 38 39-PM" src="https://user-images.githubusercontent.com/1609449/115150487-a2816800-a036-11eb-8106-c616832c54aa.png">
